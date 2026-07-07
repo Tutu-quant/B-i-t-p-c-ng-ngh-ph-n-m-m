@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>BrewPoint</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+          rel='stylesheet'>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <div class="logo-box">
+            <img src="{{ url_for('static',
+            filename='images/logo.png') }}"
+                 class="logo-img">
+        </div>
+        <span>BrewPoint</span>
+    </div>
+</header>
+<section class="hero">
+    <div class="hero-left">
+        <h1>
+            BrewPoint Coffee Management
+        </h1>
+        <p>
+            Hệ thống quản lý và đặt bàn dành cho quán cà phê.
+            Mang đến trải nghiệm thuận tiện cho khách hàng
+            và tối ưu quy trình vận hành cho nhân viên.
+        </p>
+        <div class="button-group">
+            <a href="{{ url_for('customer_login') }}"
+               class="customer-btn">
+                <i class='bx bxs-coffee'></i>
+                Khách hàng
+            </a>
+            <a href="{{ url_for('admin_login') }}"
+               class="admin-btn">
+                <i class='bx bxs-user'></i>
+                Nhân viên
+            </a>
+        </div>
+    </div>
+    <div class="hero-right">
+        <img src="{{ url_for('static',
+        filename='images/coffee.jpg') }}">
+    </div>
+</section>
+<section class="cards">
+    <div class="card">
+        <i class='bx bx-calendar-check'></i>
+        <h2>Đặt bàn</h2>
+        <p>
+            Đặt bàn trực tuyến nhanh chóng,
+            theo dõi lịch đặt và quản lý thông tin cá nhân.
+        </p>
+    </div>
+    <div class="card">
+        <i class='bx bx-store'></i>
+        <h2>Quản lý quán</h2>
+        <p>
+            Quản lý bàn, khách hàng,
+            đơn đặt bàn và hoạt động của quán.
+        </p>
+    </div>
+    <div class="card">
+        <i class='bx bx-line-chart'></i>
+        <h2>Báo cáo</h2>
+        <p>
+            Theo dõi doanh thu,
+            số lượng khách và hiệu quả kinh doanh.
+        </p>
+    </div>
+</section>
+<footer>
+    © 2026 BrewPoint Coffee Management
+</footer>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
