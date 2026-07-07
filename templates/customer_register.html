@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký khách hàng | BrewPoint</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/customer.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+    <!-- LEFT -->
+    <div class="left">
+        <div class="overlay"></div>
+        <div class="left-content">
+            <div class="logo">
+                <div class="logo-box">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}"
+                         class="logo-img">
+                </div>
+                <span>BrewPoint</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/coffee.jpg') }}"
+                 class="banner">
+            <div class="caption">
+                <h1>
+                    Gia nhập<br>
+                    BrewPoint!
+                </h1>
+                <p>
+                    Tạo tài khoản để tích điểm,
+                    nhận voucher và đặt món nhanh hơn.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- RIGHT -->
+    <div class="right">
+        <div class="login-card">
+            <h2>Tạo tài khoản</h2>
+            <p class="sub-title">
+                Chỉ mất khoảng 30 giây.
+            </p>
+            <form id="customerRegister">
+                <div class="input-group">
+                    <label>Họ và tên</label>
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Nguyễn Văn A">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com">
+                </div>
+                <div class="input-group">
+                    <label>Số điện thoại</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="09xxxxxxxx">
+                </div>
+                <div class="input-group">
+                    <label>Mật khẩu</label>
+                    <div class="password-box">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="••••••••">
+                        <i class='bx bx-hide toggle-password'></i>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Nhập lại mật khẩu</label>
+                    <div class="password-box">
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="••••••••">
+                        <i class='bx bx-hide toggle-confirm'></i>
+                    </div>
+                </div>
+                <label class="remember">
+                    <input type="checkbox" id="agree">
+                    Tôi đồng ý với điều khoản sử dụng.
+                </label>
+                <button class="login-btn">
+                    Đăng ký
+                </button>
+            </form>
+            <p class="register">
+                Đã có tài khoản?
+                <a href="{{ url_for('customer_login') }}">
+                    Đăng nhập
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/customer.js') }}"></script>
+</body>
+</html>

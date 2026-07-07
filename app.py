@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
 from models.user import User
+<<<<<<< HEAD
 from models.attendance import Attendance
 from models.database import connect_to_database
+=======
+>>>>>>> origin/main
 
 app = Flask(__name__)
 
