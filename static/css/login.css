@@ -1,0 +1,245 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Be Vietnam Pro",sans-serif;
+}
+body{
+    background:#efe4cf;
+    min-height:100vh;
+}
+.container{
+    display:flex;
+    min-height:100vh;
+}
+/* ===========================
+        LEFT
+=========================== */
+.left{
+    flex:1;
+    min-width:420px;
+    max-width:780px;
+    background:linear-gradient(180deg,#4b2612,#6b3717);
+    color:white;
+    padding:clamp(25px,4vw,55px);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:clamp(24px,2vw,30px);
+    font-weight:700;
+}
+.logo-box{
+    width:72px;
+    height:72px;
+    background:#f7ebd7cb;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+.logo-img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+.coffee{
+    width:100%;
+    max-width:620px;
+    max-height:48vh;
+    object-fit:cover;
+    border-radius:24px;
+    margin:40px auto;
+    display:block;
+}
+.caption{
+    margin-top:auto;
+}
+.caption h1{
+    font-size:clamp(34px,4vw,58px);
+    line-height:1.2;
+}
+.caption span{
+    color:#f3a45c;
+}
+.caption p{
+    margin-top:20px;
+    color:#dedede;
+    font-size:clamp(16px,1.2vw,22px);
+    line-height:1.8;
+}
+/* ===========================
+        RIGHT
+=========================== */
+.right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    position:relative;
+}
+.login-box{
+    width:min(100%,430px);
+}
+.login-box h1{
+    text-align:center;
+    color:#4b2612;
+    margin-bottom:35px;
+    font-size:clamp(28px,2vw,38px);
+}
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:500;
+    color:#5a3319;
+}
+input,
+select{
+    width:100%;
+    height:54px;
+    border:none;
+    border-radius:16px;
+    background:#f6ead7;
+    padding:0 18px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+input:focus,
+select:focus{
+    box-shadow:0 0 0 3px rgba(216,125,45,.25);
+}
+.password{
+    position:relative;
+}
+.password i{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:22px;
+    color:#777;
+}
+.option{
+    margin:20px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.remember{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+}
+.remember input{
+    width:18px;
+    height:18px;
+}
+.option a{
+    color:#d87d2d;
+    text-decoration:none;
+}
+.option a:hover{
+    text-decoration:none;
+}
+button{
+    width:100%;
+    height:56px;
+    border:none;
+    border-radius:16px;
+    background:#43220f;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover{
+    background:#5d3218;
+    transform:translateY(-2px);
+}
+/* ===========================
+      RESPONSIVE
+=========================== */
+@media (max-width:1100px){
+    .left{
+        display:none;
+    }
+    .right{
+        width:100%;
+        flex:1;
+    }
+    .login-box{
+        width:min(90%,430px);
+    }
+}
+@media (max-width:600px){
+    body{
+        background:#ffffff;
+    }
+    .right{
+        padding:20px;
+    }
+    .login-box{
+        width:100%;
+    }
+    .login-box h1{
+        margin-bottom:25px;
+    }
+    input,
+    select,
+    button{
+        height:50px;
+    }
+    .option{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+}
+/* ===========================
+        BACK BUTTON
+=========================== */
+.back-btn{
+    position:absolute;
+    top:30px;
+    right:35px;
+    left:auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#F8F5EF;      /* cùng màu cột phải */
+    color:#5B3716;
+    border-radius:40px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.3s;
+    text-decoration:none;
+    z-index:999;
+}
+.back-btn i{
+    font-size:22px;
+}
+.back-btn:hover{
+    background:#5B3716;
+    color:white;
+    transform:translateY(-3px);
+}
+@media (max-width:768px){
+    .back-btn{
+        top:20px;
+        right:20px;
+        padding:10px 18px;
+        font-size:14px;
+    }
+}

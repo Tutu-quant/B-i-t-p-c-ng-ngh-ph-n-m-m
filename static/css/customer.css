@@ -1,0 +1,521 @@
+/* ===========================
+        RESET
+=========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Be Vietnam Pro",sans-serif;
+}
+body{
+    min-height:100vh;
+    background:#F6F2EC;
+    overflow-x:hidden;
+}
+a{
+    text-decoration:none;
+}
+img{
+    display:block;
+    max-width:100%;
+}
+/* ===========================
+        CONTAINER
+=========================== */
+.container{
+    display:flex;
+    min-height:100vh;
+}
+/* ===========================
+        LEFT
+=========================== */
+.left{
+    flex:1;
+    position:relative;
+    background:linear-gradient(135deg,#4C2A16,#8A5633);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+}
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.12);
+}
+.left-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:620px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    color:white;
+    margin-bottom:40px;
+}
+.logo-box{
+    width:76px;
+    height:76px;
+    border-radius:22px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+.logo-img{
+    width:56px;
+    height:56px;
+    object-fit:contain;
+}
+.logo span{
+    font-size:32px;
+    font-weight:700;
+}
+.banner{
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
+    border-radius:28px;
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+.caption{
+    margin-top:45px;
+    color:white;
+}
+.caption h1{
+    font-size:clamp(36px,4vw,58px);
+    line-height:1.2;
+    font-weight:800;
+}
+.caption p{
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.8;
+    color:#F3F3F3;
+}
+/* ===========================
+        RIGHT
+=========================== */
+.right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background:#F8F5EF;
+    position:relative;
+}
+.login-card{
+    width:100%;
+    max-width:470px;
+    background:white;
+    border-radius:30px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+}
+.login-card h2{
+    font-size:34px;
+    color:#4C2A16;
+    margin-bottom:8px;
+    text-align:center;
+    margin-bottom:28px;
+}
+/* ===========================
+        FORM
+=========================== */
+.input-group{
+    margin-bottom:22px;
+}
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#5D4635;
+    font-size:15px;
+    font-weight:600;
+}
+.input-group input{
+    width:100%;
+    height:56px;
+    padding:0 18px;
+    border:2px solid #E7DED3;
+    border-radius:16px;
+    background:#FCFBF9;
+    font-size:15px;
+    color:#4C2A16;
+    outline:none;
+    transition:.3s;
+}
+.input-group input::placeholder{
+    color:#A99A8B;
+}
+.input-group input:focus{
+    border-color:#C98A4A;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(201,138,74,.18);
+}
+/* ===========================
+      PASSWORD
+=========================== */
+.password-box{
+    position:relative;
+}
+.password-box input{
+    width:100%;
+    padding-right:55px;
+}
+.toggle-password,.toggle-confirm{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:22px;
+    color:#8E7E6F;
+    cursor:pointer;
+    transition:.3s;
+}
+.toggle-password,.toggle-confirm:hover{
+    color:#4C2A16;
+}
+/* ===========================
+      REMEMBER
+=========================== */
+.option{
+    margin:8px 0 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.remember{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#5D4635;
+    font-size:14px;
+    margin:18px 0 28px;
+    cursor:pointer;
+}
+.remember input{
+    width:17px;
+    height:17px;
+    accent-color:#8A5633;
+}
+.option a{
+    color:#B56F2F;
+    font-size:14px;
+    transition:.25s;
+}
+.option a:hover{
+    color:#8A5633;
+    text-decoration:underline;
+}
+/* ===========================
+      LOGIN BUTTON
+=========================== */
+.login-btn{
+    width:100%;
+    height:56px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg,#8A5633,#5B3716);
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 12px 25px rgba(91,55,22,.25);
+}
+.login-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(91,55,22,.32);
+}
+.login-btn:active{
+    transform:scale(.98);
+}
+/* ===========================
+      DIVIDER
+=========================== */
+.divider{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin:32px 0;
+}
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#E6DDD3;
+}
+.divider span{
+    color:#9A8C7E;
+    font-size:14px;
+}
+/* ===========================
+      GOOGLE BUTTON
+=========================== */
+.google-btn{
+    width:100%;
+    height:54px;
+    border:2px solid #E7DED3;
+    background:#fff;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    color:#4C2A16;
+    transition:.3s;
+}
+.google-btn i{
+    font-size:22px;
+    color:#DB4437;
+}
+.google-btn:hover{
+    background:#F9F6F2;
+    border-color:#C98A4A;
+}
+/* ===========================
+      REGISTER
+=========================== */
+.register{
+    margin-top:28px;
+    text-align:center;
+    color:#7A6A5C;
+    font-size:15px;
+}
+.register a{
+    color:#B56F2F;
+    font-weight:700;
+    margin-left:4px;
+    transition:.3s;
+}
+.register a:hover{
+    color:#8A5633;
+    text-decoration:underline;
+}
+/* ===========================
+        ANIMATION
+=========================== */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+@keyframes fadeLeft{
+    from{
+        opacity:0;
+        transform:translateX(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+.left-content{
+    animation:fadeLeft .8s ease;
+}
+.login-card{
+    animation:fadeUp .8s ease;
+}
+/* ===========================
+        HOVER EFFECT
+=========================== */
+.banner{
+    transition:.4s;
+}
+.banner:hover{
+    transform:scale(1.02);
+}
+.logo-box{
+    transition:.3s;
+}
+.logo-box:hover{
+    transform:rotate(-5deg) scale(1.05);
+    box-shadow:0 16px 35px rgba(0,0,0,.22);
+}
+.input-group input:hover{
+    border-color:#D6B08B;
+}
+.login-card{
+    transition:.3s;
+}
+.login-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 55px rgba(0,0,0,.12);
+}
+/* ===========================
+        SCROLLBAR
+=========================== */
+::-webkit-scrollbar{
+    width:8px;
+}
+::-webkit-scrollbar-thumb{
+    background:#C7A37C;
+    border-radius:10px;
+}
+::-webkit-scrollbar-track{
+    background:#F5F1EB;
+}
+/* ===========================
+        RESPONSIVE
+=========================== */
+@media (max-width:1200px){
+    .left{
+        padding:35px;
+    }
+    .login-card{
+        padding:38px;
+    }
+}
+@media (max-width:992px){
+    .container{
+        flex-direction:column;
+    }
+    .left{
+        display:none;
+    }
+    .right{
+        width:100%;
+        min-height:100vh;
+        padding:35px 20px;
+    }
+    .login-card{
+        max-width:500px;
+    }
+}
+@media (max-width:768px){
+    body{
+        background:#F8F5EF;
+    }
+    .login-card{
+        padding:32px 26px;
+        border-radius:22px;
+    }
+    .login-card h2{
+        font-size:30px;
+    }
+    .input-group input{
+        height:52px;
+    }
+    .login-btn{
+        height:52px;
+    }
+    .google-btn{
+        height:52px;
+    }
+}
+@media (max-width:576px){
+    .right{
+        padding:18px;
+    }
+    .login-card{
+        width:100%;
+        padding:25px 20px;
+        border-radius:18px;
+    }
+    .option{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+    .divider{
+        margin:24px 0;
+    }
+}
+@media (max-width:380px){
+    .login-card{
+        padding:20px 16px;
+    }
+    .login-card h2{
+        font-size:26px;
+    }
+    .input-group label{
+        font-size:14px;
+    }
+    .register{
+        font-size:14px;
+    }
+}
+/* ===========================
+        LARGE SCREEN
+=========================== */
+@media (min-width:1600px){
+    .left-content{
+        max-width:700px;
+    }
+    .banner{
+        max-width:580px;
+    }
+    .login-card{
+        max-width:500px;
+        padding:55px;
+    }
+}
+button{
+    position:relative;
+    overflow:hidden;
+}
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:ripple .6s linear;
+    background:rgba(255,255,255,.45);
+}
+@keyframes ripple{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
+}
+/* ===========================
+        BACK BUTTON
+=========================== */
+.back-btn{
+    position:absolute;
+    top:30px;
+    right:35px;
+    left:auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#F8F5EF;      /* cùng màu cột phải */
+    color:#5B3716;
+    border-radius:40px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.3s;
+    z-index:999;
+}
+.back-btn i{
+    font-size:22px;
+}
+.back-btn:hover{
+    background:#5B3716;
+    color:white;
+    transform:translateY(-3px);
+}
+@media (max-width:768px){
+    .back-btn{
+        top:20px;
+        right:20px;
+        padding:10px 18px;
+        font-size:14px;
+    }
+}
