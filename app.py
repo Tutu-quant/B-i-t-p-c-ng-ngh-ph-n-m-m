@@ -13,13 +13,31 @@ except Exception as error:
     db_connection = None
     app.config['DB_CONNECTION_ERROR'] = str(error)
 
+
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
+
 
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+
+@app.route('/customer_login')
+def customer_login():
+    return render_template('customer_login.html')
+
+
+@app.route('/customer_register')
+def customer_register():
+    return render_template('customer_register.html')
+
+
+@app.route('/admin_login')
+def admin_login():
+    return render_template('login.html')
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -40,23 +58,27 @@ def register():
 
     return render_template('register.html')
 
+
 @app.route('/menu')
 def menu():
     return render_template('menu.html')
+
 
 @app.route('/reservation')
 def reservation():
     return render_template('reservation.html')
 
+
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
+
 
 @app.route('/attendance')
 def attendance():
     attendance = Attendance(employee_id=1)
     attendance.check_in(time=None)
-    ######Phần này note code xem cải thiện được j hay không cho anh nhé
+    return "Attendance checked", 200
 
 
 if __name__ == '__main__':
