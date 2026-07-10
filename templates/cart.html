@@ -1,9 +1,14 @@
-{% extends "base.html" %}
-
-{% block title %}
-Giỏ hàng
-{% endblock %}
-
-{% block content %}
-<h2>Giỏ hàng</h2>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Giỏ hàng</h2>
+    <p>Đơn hàng sẽ được gửi từ trang Thực đơn.</p>
+    <a href="{{ url_for('menu') }}">Quay lại thực đơn</a>
+</body>
+</html>
