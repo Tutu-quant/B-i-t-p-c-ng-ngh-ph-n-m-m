@@ -1,9 +1,104 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực đơn</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Danh sách món ăn</h2>
+    <div id="menu-list">
+        {% for item in items %}
+        <div class="menu-item" style="border:1px solid #ddd; padding:12px; margin:10px 0;">
+            <strong>{{ item.item_name }}</strong><br>
+            {{ item.description }}<br>
+            Giá: {{ "%.0f"|format(item.price) }}đ<br>
+            <button onclick="addToCart({{ item.item_id }}, '{{ item.item_name }}', {{ item.price }})">Đặt món</button>
+        </div>
+        {% endfor %}
+    </div>
 
-{% block title %}
-Menu
-{% endblock %}
+    <h3>Giỏ hàng</h3>
+    <ul id="cart"></ul>
+    <button onclick="submitOrder()">Gửi đơn hàng</button>
 
-{% block content %}
-<h2>Danh sách món ăn</h2>
-{% endblock %}
+    <h3>Trạng thái đơn hàng</h3>
+    <div id="order-status-list"></div>
+
+    <script>
+        let cart = [];
+        function addToCart(id, name, price) {
+            const existing = cart.find(x => x.item_id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ item_id: id, item_name: name, price: price, quantity: 1 });
+            }
+            renderCart();
+        }
+        function renderCart() {
+            const container = document.getElementById('cart');
+            container.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.item_name} x${item.quantity} - ${item.price * item.quantity}đ`;
+                container.appendChild(li);
+            });
+        }
+        function loadOrders() {
+            fetch('/api/orders')
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById('order-status-list');
+                    if (!data.success || !data.orders.length) {
+                        container.innerHTML = '<p>Chưa có đơn hàng nào.</p>';
+                        return;
+                    }
+                    container.innerHTML = data.orders.map(order => `
+                        <div style="border:1px solid #ccc; padding:10px; margin:8px 0;">
+                            <strong>Đơn #${order.order_id}</strong> - Trạng thái: <span>${order.status}</span>
+                            <div style="margin-top:6px;">
+                                <button onclick="updateStatus(${order.order_id}, 'Đang làm')">Đang làm</button>
+                                <button onclick="updateStatus(${order.order_id}, 'Đã xong')">Đã xong</button>
+                            </div>
+                        </div>
+                    `).join('');
+                });
+        }
+        function updateStatus(orderId, status) {
+            fetch(`/api/orders/${orderId}/status`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: status })
+            }).then(res => res.json()).then(() => loadOrders());
+        }
+        function submitOrder() {
+            if (cart.length === 0) {
+                alert('Chưa có món nào trong giỏ');
+                return;
+            }
+            fetch('/api/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    customer_id: 1,
+                    table_id: 1,
+                    employee_id: 1,
+                    items: cart
+                })
+            }).then(res => res.json()).then(data => {
+                if (data.success) {
+                    alert('Đặt món thành công!');
+                    cart = [];
+                    renderCart();
+                    loadOrders();
+                } else {
+                    alert(data.message || 'Đặt món thất bại');
+                }
+            });
+        }
+        loadOrders();
+    </script>
+</body>
+</html>
